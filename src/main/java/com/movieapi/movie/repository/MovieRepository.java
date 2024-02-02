@@ -1,8 +1,8 @@
-package com.movieapi.movie;
+package com.movieapi.movie.repository;
 
+import com.movieapi.movie.model.Movie;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.data.repository.NoRepositoryBean;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
@@ -10,4 +10,6 @@ import java.util.Optional;
 @Repository
 public interface MovieRepository extends  MongoRepository<Movie, ObjectId> {
     Optional<Movie> findMovieByImdbId(String imdbId);
+    Optional<Movie> findByTitle(String title);
+    Optional<Movie> getSingleMovieById(ObjectId id);
 }
